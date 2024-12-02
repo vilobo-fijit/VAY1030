@@ -4,7 +4,7 @@ import plotly.express as px
 
 if __name__ == "__main__":
     stats: dict[str, int] = {}
-    with open('failslesson4/test_100k.csv',"r") as file:
+    with open('../lesson4/failslesson4/test_100k.csv',"r") as file:
         next(file)
         stats = {}
         for line in file:
@@ -16,12 +16,15 @@ if __name__ == "__main__":
                 stats[ship_type] = 1
 
         ship_sum = sum(stats.values())
+        ship_in_percent = []
         for key, values in stats.items():
-            ship_percent = str(round(values/ ship_sum * 100, 2)) + " %"
+            ship_percent = round(values/ ship_sum * 100, 2)
+            ship_in_percent.append(ship_percent)
+            ship_percent = str(ship_percent) + "%"
             amount = "Total " + str(values) + " ships"
             print(f"{key.rjust(25)}{ship_percent.rjust(15)}\t\t\t{amount.ljust(20)}")
 
-    fig = px.bar(x=stats.keys(), y=stats.values())
+    fig = px.bar(x=stats.keys(), y=ship_in_percent)
     fig.show()
 
         # for ship_type in stats:
