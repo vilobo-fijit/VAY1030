@@ -1,5 +1,5 @@
 def motivation_read():
-    file = open('failslesson4/file_1_motivation.txt', 'r')
+    file = open('../lesson 7/failslesson4/file_1_motivation.txt', 'r')
     for line in file:
             print(line.strip())
     file.close()

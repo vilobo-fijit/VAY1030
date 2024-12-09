@@ -2,7 +2,7 @@ import plotly.express as px
 
 if __name__ == "__main__":
     stats: dict[str, int] = {}
-    with open('../lesson4/failslesson4/test_100k.csv',"r") as file:
+    with open('../lesson 7/failslesson4/test_100k.csv', "r") as file:
         next(file)
         stats = {
             "UNAVAILABLE": 0

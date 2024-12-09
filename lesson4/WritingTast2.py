@@ -18,7 +18,7 @@ def save(fail):
 
 
 if __name__ == '__main__':
-    with open('failslesson4/students.csv', 'a') as fail:
+    with open('../lesson 7/failslesson4/students.csv', 'a') as fail:
         while True:
             if save(fail) == False:
                 break
