@@ -61,4 +61,22 @@ def task5_print_population_stats(filename:str):
     fig = px.bar(x = data.keys(), y = data.values())
     fig.show()
 
-task5_print_population_stats("population_by_age_group.csv")
+# task5_print_population_stats("population_by_age_group.csv")
+
+
+"task 6"
+def task6_print_ordered_population(filename:str):
+    with open(filename, "r") as file:
+        data = {}
+        next(file)
+        for line in file:
+            sum = 0
+            splitted_line = line.split(",")
+            for group in splitted_line[1:]:
+                sum += int(group)
+            data[splitted_line[0]] = sum
+    data = dict(sorted(data.items(), key=lambda country: country[1], reverse=True)) # tavaline sorted ei toota
+    fig = px.bar(x = data.keys(), y = data.values())
+    fig.show()
+
+task6_print_ordered_population("population_by_age_group.csv")
