@@ -29,4 +29,20 @@ def task3_read_population(filename:str, group:int):
             data[country[0]] = int(country[group])
             total += int(country[group])
     print(data)
-    print(f"Total of yout group is {total}")
+    print(f"To"
+          f"tal of yout group is {total}")
+
+
+"task 4"
+def task4_calculate_population_stats(filename:str, group: int):
+    with open(filename, "r") as file:
+        age_group = next(file).split(",")[group]
+        ages_list = []
+        for line in file:
+            ages_list.append(int(line.split(",")[group]))
+        average = round(np.average(ages_list), 2)
+        median = round(np.median(ages_list), 2)
+    print(f"In age group of {age_group} the median is {median} and average is {average}")
+
+task4_calculate_population_stats("population_by_age_group.csv", 4)
+
