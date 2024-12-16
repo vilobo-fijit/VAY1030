@@ -3,7 +3,7 @@ if __name__ == '__main__':
     #     for line in file:
     #         print(line.strip())  # `.strip()` removes leading/trailing whitespace.
     # print("\n\nStart parsing CSV AIS data")
-    with open('failslesson4/ais_data.csv', 'r') as file:
+    with open('../lesson 7/failslesson4/ais_data.csv', 'r') as file:
         next(file)
         lines: list[str] = file.readlines() #[1:]
         for line in lines:

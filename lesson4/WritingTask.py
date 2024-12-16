@@ -9,7 +9,7 @@ def save(fail):
         return False
     fail.write(f"{name},{age}\n")
 
-with open('failslesson4/students.csv', 'a') as fail:
+with open('../lesson 7/failslesson4/students.csv', 'a') as fail:
     while True:
         if save(fail) == False:
             break

@@ -1,4 +1,4 @@
-with open('failslesson4/test_100k.csv', 'r') as fail:
+with open('../lesson 7/failslesson4/test_100k.csv', 'r') as fail:
     lines = fail.readlines()
     ships_types = []
 
