@@ -79,4 +79,22 @@ def task6_print_ordered_population(filename:str):
     fig = px.bar(x = data.keys(), y = data.values())
     fig.show()
 
-task6_print_ordered_population("population_by_age_group.csv")
+# task6_print_ordered_population("population_by_age_group.csv")
+
+"task 7"
+def task7_print_limited_stats(filename:str, limit: int = 10):
+    with open(filename, "r") as file:
+        data = {}
+        next(file)
+        for line in file:
+            sum = 0
+            splitted_line = line.split(",")
+            for group in splitted_line[1:]:
+                sum += int(group)
+            data[splitted_line[0]] = sum
+    data = dict(sorted(data.items(), key=lambda country: country[1], reverse=True))
+    limited_data = dict(list(data.items())[:limit])
+    fig = px.bar(x = limited_data.keys(), y = limited_data.values())
+    fig.show()
+
+task7_print_limited_stats("population_by_age_group.csv")
