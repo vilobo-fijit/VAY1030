@@ -1,4 +1,5 @@
 import numpy as np
+import plotly.express as px
 
 "task 1"
 def task1_check_age(age:int) -> str:
@@ -44,5 +45,20 @@ def task4_calculate_population_stats(filename:str, group: int):
         median = round(np.median(ages_list), 2)
     print(f"In age group of {age_group} the median is {median} and average is {average}")
 
-task4_calculate_population_stats("population_by_age_group.csv", 4)
+# task4_calculate_population_stats("population_by_age_group.csv", 4)
 
+"task 5"
+def task5_print_population_stats(filename:str):
+    with open(filename, "r") as file:
+        data = {}
+        next(file)
+        for line in file:
+            sum = 0
+            splitted_line = line.split(",")
+            for group in splitted_line[1:]:
+                sum += int(group)
+            data[splitted_line[0]] = sum
+    fig = px.bar(x = data.keys(), y = data.values())
+    fig.show()
+
+task5_print_population_stats("population_by_age_group.csv")
