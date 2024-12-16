@@ -21,10 +21,12 @@ def print_ship_speeds(stats, limit):
 
 def print_ship_speeds(stats: dict[float, int], limit: int):
     new_dict = {}
-    for key, value in dict.items():
+    for key, value in stats.items():
         if value < limit:
             new_dict[key] = value
     print(new_dict)
 
 if __name__ == '__main__':
-    print_ship_speeds(process_ais_data('../kontrolltoo/failslesson4/test_100k.csv','"CARGO"'),4)
+    stats = process_ais_data('../failslesson4/test_100k.csv', '"CARGO"')
+    print(stats)
+    print_ship_speeds(stats, 4)
